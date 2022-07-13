@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <h1>Afaaq's Wordle</h1>
+        <h1>Wordle</h1>
       </nav>
       <AppContext.Provider
         value={{
@@ -89,9 +89,20 @@ function App() {
         }}
       >
         <div className="game">
+
+
+
           <Board />
+
+
+
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
+
+        <footer style={{
+          marginTop: "30px", color: "grey",
+          textAlign: "center"
+        }}>Designed by : Afaaq</footer>
       </AppContext.Provider>
     </div>
   );

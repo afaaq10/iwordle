@@ -5,6 +5,8 @@
   height: 100vh;
   /* display: flex; */
   color: white;
+
+
 }
 
 body {
@@ -35,6 +37,20 @@ nav h1 {
   padding-top: 50px;
   flex-direction: column;
 }
+@media only screen and (max-width: 600px) {
+  .game {
+    width: 100vw;
+  height: calc(80vh - 170px);
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+  }
+}
+
+
+
+
 
 .board {
   width: 450px;
@@ -42,7 +58,23 @@ nav h1 {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+ 
 }
+
+@media only screen and (max-width: 600px) {
+  .board {
+    width: 314px;
+    height: 550px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-right: 47px;
+  }
+}
+
+
+
+
 
 .row {
   flex: 33%;
@@ -81,6 +113,13 @@ nav h1 {
   height: 300px;
   margin-top: 60px;
 }
+/* .keyboard {
+  width: 305px;
+  height: 300px;
+  margin-top: 60px;
+  margin-right: 49px;
+} */
+
 
 .line1 {
   flex: 33%;
@@ -90,6 +129,20 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+@media only screen and (max-width: 600px) {
+  .line1{
+   
+      flex: 33% 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 5px;
+      margin-right: 37px;
+      width: 643px;
+      /* margin-left: 12px; */
+  }
+  }
+
 .line2 {
   flex: 33%;
   display: flex;
@@ -97,12 +150,45 @@ nav h1 {
   justify-content: center;
   margin: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .line2{
+   
+      flex: 33% 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 5px;
+      margin-right: 37px;
+      width: 643px;
+      margin-right: 42px;
+  }
+  }
+
+
+
+
+
 .line3 {
   flex: 33%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+.line3{
+ 
+    flex: 33% 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+    /* margin-right: 65px; */
+    width: 643px;
+    /* margin-left: 12px; */
+}
 }
 
 .key {
@@ -118,10 +204,33 @@ nav h1 {
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
-
 #big {
   width: 100px;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  .key {
+    width: 24px;
+    height: 37px;
+    margin: 3px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    font-size: 10px;
+    background-color: grey;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+#big {
+  width: 50px;
+}
+  }
+
+
+
 #disabled {
   background-color: #3a393c;
 }
