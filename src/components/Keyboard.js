@@ -1,85 +1,79 @@
-import React, { useEffect, useCallback, useContext } from 'react'
-import { AppContext } from '../App'
-import Key from './Key'
+import React, { useCallback, useEffect, useContext } from "react";
+import Key from "./Key";
+import { AppContext } from "../App";
 
-const Keyboard = () => {
-  const { onDelete, onEnter, onSelectingLetter, disabledState, setDisabledState } = useContext(AppContext)
-  const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
-  const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
-  const keys3 = ["Z", "X", "C", "V", "B", "N", "M"]
+function Keyboard() {
+  const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+  const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+  const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
+  const {
+    board,
+    disabledLetters,
+    currAttempt,
+    gameOver,
+    onSelectLetter,
+    onEnter,
+    onDelete,
+  } = useContext(AppContext);
 
-
-  const handleKeyPress = useCallback((event) => {
-    if (event.key === "Enter") {
-      onEnter();
-    }
-    else if (event.key === "Backspace") {
-      onDelete();
-    }
-    else {
-      keys1.forEach((key) => {
-        if (event.key.toLowerCase() === key.toLowerCase()) {
-          onSelectingLetter(key)
-        }
-
-      })
-      keys2.forEach((key) => {
-        if (event.key.toLowerCase() === key.toLowerCase()) {
-          onSelectingLetter(key)
-        }
-
-      })
-      keys3.forEach((key) => {
-        if (event.key.toLowerCase() === key.toLowerCase()) {
-          onSelectingLetter(key)
-        }
-
-      })
-
-    }
-  }
-
-  )
-
-
-
+  const handleKeyboard = useCallback(
+    (event) => {
+      if (gameOver.gameOver) return;
+      if (event.key === "Enter") {
+        onEnter();
+      } else if (event.key === "Backspace") {
+        onDelete();
+      } else {
+        keys1.forEach((key) => {
+          if (event.key.toLowerCase() === key.toLowerCase()) {
+            onSelectLetter(key);
+          }
+        });
+        keys2.forEach((key) => {
+          if (event.key.toLowerCase() === key.toLowerCase()) {
+            onSelectLetter(key);
+          }
+        });
+        keys3.forEach((key) => {
+          if (event.key.toLowerCase() === key.toLowerCase()) {
+            onSelectLetter(key);
+          }
+        });
+      }
+    },
+    [currAttempt]
+  );
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyboard);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyPress)
-    }
-  }, [handleKeyPress])
+      document.removeEventListener("keydown", handleKeyboard);
+    };
+  }, [handleKeyboard]);
 
+  console.log(disabledLetters);
   return (
-
-    <div className='keyboard'>
-
-      <div className='line1'>{keys1.map((key, i) => {
-        return <Key keyVal={key} key={i} disabled={disabledState.includes(key)} />
-      })}
-      </div>
-
-      <div className='line2'>
-        {keys2.map((key, i) => {
-          return <Key keyVal={key} key={i} disabled={disabledState.includes(key)} />
+    <div className="keyboard" onKeyDown={handleKeyboard}>
+      <div className="line1">
+        {keys1.map((key) => {
+          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
         })}
       </div>
-
-      <div className='line3'>
-        <Key keyVal="ENTER" bigKey />
-
-        {keys3.map((key, i) => {
-          return <Key keyVal={key} key={i} disabled={disabledState.includes(key)} />
+      <div className="line2">
+        {keys2.map((key) => {
+          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
         })}
-
-        <Key keyVal="DELETE" bigKey />
-
       </div>
-
+      <div className="line3">
+        <Key keyVal={"ENTER"} bigKey />
+        {keys3.map((key) => {
+          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
+        })}
+        <Key keyVal={"DELETE"} bigKey />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Keyboard
+export default Keyboard;

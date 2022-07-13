@@ -1,37 +1,28 @@
-import React, { useContext, useEffect } from 'react'
-import { AppContext } from '../App'
-import './Board'
-import '../App.css'
+import React, { useContext, useEffect } from "react";
+import { AppContext } from "../App";
 
-const Letter = ({ letterPos, attemptedValue }) => {
+function Letter({ letterPos, attemptVal }) {
+  const { board, setDisabledLetters, currAttempt, correctWord } =
+    useContext(AppContext);
+  const letter = board[attemptVal][letterPos];
+  const correct = correctWord.toUpperCase()[letterPos] === letter;
+  const almost =
+    !correct && letter !== "" && correctWord.toUpperCase().includes(letter);
+  const letterState =
+    currAttempt.attempt > attemptVal &&
+    (correct ? "correct" : almost ? "almost" : "error");
 
-
-    const { board, correctWord, currAttempt, setDisabledState } = useContext(AppContext)
-
-    const value = board[attemptedValue][letterPos]
-
-    const correct = correctWord.toUpperCase()[letterPos] === value
-    const almost = !correct && value != "" && correctWord.includes(value)
-
-    const letterState = currAttempt.attempt > attemptedValue && (correct ? "correct" : almost ? "almost" : "error")
-
-
-    useEffect(() => {
-        if (value != "" && !almost && !correct) {
-            setDisabledState((prev) => [...prev, value])
-        }
-
-
-    }, [currAttempt.attempt])
-
-
-
-
-
-
-    return (
-        <div className='letter' id={letterState ? letterState : "undefined"}>{value}</div>
-    )
+  useEffect(() => {
+    if (letter !== "" && !correct && !almost) {
+      console.log(letter);
+      setDisabledLetters((prev) => [...prev, letter]);
+    }
+  }, [currAttempt.attempt]);
+  return (
+    <div className="letter" id={letterState}>
+      {letter}
+    </div>
+  );
 }
 
-export default Letter
+export default Letter;

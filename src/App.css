@@ -2,7 +2,7 @@
   text-align: center;
   background-color: #121212;
   width: 100vw;
-  height: 143vh;
+  height: 100vh;
   /* display: flex; */
   color: white;
 }
@@ -12,7 +12,21 @@ body {
   margin: 0;
 }
 
+nav {
+  height: 60px;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid grey;
+  display: grid;
+  place-items: center;
+}
 
+nav h1 {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 45px;
+}
 .game {
   width: 100vw;
   height: calc(100vh - 170px);
@@ -23,31 +37,28 @@ body {
 }
 
 .board {
-  width: 100vw;
-  height: 340px;
-  /* border: 1px solid black; */
+  width: 450px;
+  height: 550px;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
 }
 
 .row {
-  flex: 11%;
+  flex: 33%;
   display: flex;
   flex-direction: row;
-  margin: 2px auto;
-  padding-top: 0.5px;
+  margin: 5px;
 }
 
 .letter {
-  flex: 11%;
+  flex: 33%;
   height: 100%;
-  width: 78px;
   border: 1px solid grey;
   margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
   font-weight: bolder;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -68,16 +79,14 @@ body {
 .keyboard {
   width: 700px;
   height: 300px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
-
-
-
 
 .line1 {
   flex: 33%;
   display: flex;
   flex-direction: row;
+  display: flex;
   justify-content: center;
   margin: 5px;
 }
@@ -86,9 +95,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: 29px;
-  margin-right: 28px;
-  
+  margin: 5px;
 }
 .line3 {
   flex: 33%;
@@ -115,34 +122,6 @@ body {
 #big {
   width: 100px;
 }
-@media only screen and (max-width: 600px) {
-  .key {
-    width: 28px;
-    height: 43px;
-    margin-top: 0px;
-    margin-left: 1px;
-}
-#big {
-  width: 79px;
-}
-.keyboard {
-  width: 700px;
-  height: 300px;
-  margin-top: 110px;
-}
-.board {
-  width: 100vw;
-  height: 340px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 54px;
-  margin-left: 17px;
-  margin-right: 15px;
-}
-  
-}
-
-
 #disabled {
   background-color: #3a393c;
 }
