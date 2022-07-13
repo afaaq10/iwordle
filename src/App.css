@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+  background-color: #121212;
+  width: 100vw;
+  height: 143vh;
+  /* display: flex; */
+  color: white;
+}
+
+body {
+  padding: 0%;
+  margin: 0;
+}
+
+
+.game {
+  width: 100vw;
+  height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+}
+
+.board {
+  width: 100vw;
+  height: 340px;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  flex: 11%;
+  display: flex;
+  flex-direction: row;
+  margin: 2px auto;
+  padding-top: 0.5px;
+}
+
+.letter {
+  flex: 11%;
+  height: 100%;
+  width: 78px;
+  border: 1px solid grey;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bolder;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#correct {
+  background-color: #528d4e;
+}
+
+#almost {
+  background-color: #b49f39;
+}
+
+#error {
+  background-color: #3a393c;
+}
+
+.keyboard {
+  width: 700px;
+  height: 300px;
+  margin-top: 40px;
+}
+
+
+
+
+.line1 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+.line2 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 29px;
+  margin-right: 28px;
+  
+}
+.line3 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px;
+}
+
+.key {
+  width: 50px;
+  height: 70px;
+  margin: 5px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background-color: grey;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+#big {
+  width: 100px;
+}
+@media only screen and (max-width: 600px) {
+  .key {
+    width: 28px;
+    height: 43px;
+    margin-top: 0px;
+    margin-left: 1px;
+}
+#big {
+  width: 79px;
+}
+.keyboard {
+  width: 700px;
+  height: 300px;
+  margin-top: 110px;
+}
+.board {
+  width: 100vw;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 54px;
+  margin-left: 17px;
+  margin-right: 15px;
+}
+  
+}
+
+
+#disabled {
+  background-color: #3a393c;
+}
