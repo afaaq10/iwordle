@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/iwordle/static/css/main.d07f2826.css",
-    "main.js": "/iwordle/static/js/main.946b31d0.js",
+    "main.js": "/iwordle/static/js/main.a26f1144.js",
     "static/js/787.dcb9a848.chunk.js": "/iwordle/static/js/787.dcb9a848.chunk.js",
     "static/media/wordle-bank.txt": "/iwordle/static/media/wordle-bank.d1e180c0e95e817784be.txt",
     "index.html": "/iwordle/index.html",
     "main.d07f2826.css.map": "/iwordle/static/css/main.d07f2826.css.map",
-    "main.946b31d0.js.map": "/iwordle/static/js/main.946b31d0.js.map",
+    "main.a26f1144.js.map": "/iwordle/static/js/main.a26f1144.js.map",
     "787.dcb9a848.chunk.js.map": "/iwordle/static/js/787.dcb9a848.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d07f2826.css",
-    "static/js/main.946b31d0.js"
+    "static/js/main.a26f1144.js"
   ]
 }
