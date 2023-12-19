@@ -2310,6 +2310,7 @@ yeast
 yield
 young
 youth
+yoked
 zebra
 zesty
 zonal
